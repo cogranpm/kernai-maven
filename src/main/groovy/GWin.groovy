@@ -1,8 +1,8 @@
 import org.eclipse.jface.window.ApplicationWindow
 
-class GWIndow extends ApplicationWindow{
+class GWin extends ApplicationWindow{
 	
-	GWindow(){
+	GWin(){
 		print('hello')
 	}
 	
