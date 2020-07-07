@@ -20,7 +20,41 @@
     <groovy.version>3.0.3</groovy.version>
 	</properties>
 
+  <repositories>
+      <repository>
+          <id>clojars</id>
+          <url>https://clojars.org/repo/</url>
+      </repository>
+  </repositories>
 
+  <profiles>
+      <profile>
+          <id>linux_x86_64</id>
+          <activation>
+              <os>
+                  <name>linux</name>
+                  <arch>amd64</arch>
+              </os>
+          </activation>
+          <build>
+              <directory>${project.basedir}/target/${project.version}/linux_x86_64</directory>
+          </build>
+      </profile>
+
+      <profile>
+          <id>win32_x86_64</id>
+          <activation>
+              <os>
+                  <name>linux</name>
+                  <arch>i386</arch>
+              </os>
+          </activation>
+          <build>
+              <directory>${project.basedir}/target/${project.version}/win32_x86_64</directory>
+          </build>
+      </profile>
+
+  </profiles>
 
 
 	<dependencies>
@@ -31,18 +65,20 @@
 			<scope>test</scope>
 		</dependency>
 
+    <dependency>
+			  <groupId>org.eclipse.platform</groupId>
+			  <artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+			  <version>3.114.100</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.eclipse.platform</groupId>
 			<artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
 			<version>3.114.100</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.eclipse.platform</groupId>
-			<artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
-			<version>3.114.100</version>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>org.eclipse.platform</groupId>
 			<artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
@@ -142,11 +178,32 @@
 			<version>3.0.3</version>
 		</dependency>
 
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-json</artifactId>
+        <version>${groovy.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-sql</artifactId>
+        <version>${groovy.version}</version>
+    </dependency>
+
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.200</version>
 		</dependency>
+
+    <!-- https://mvnrepository.com/artifact/jsyntaxpane/jsyntaxpane -->
+    <dependency>
+        <groupId>jsyntaxpane</groupId>
+        <artifactId>jsyntaxpane</artifactId>
+        <version>0.9.5-b29</version>
+    </dependency>
+
 
 	</dependencies>
 
@@ -188,6 +245,7 @@
   </pluginRepositories>
 
 	<build>
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -201,6 +259,7 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.2.1</version>
 					<configuration>
+              <addResourcesToClasspath>true</addResourcesToClasspath>
 						<mainClass>com.parinherm.kernai.App</mainClass>
 					</configuration>
 				</plugin>
@@ -262,6 +321,36 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <!-- get all project dependencies -->
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <!-- MainClass in mainfest make a executable jar -->
+                <archive>
+                    <manifest>
+                        <mainClass>com.parinherm.kernai.App</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <!-- bind to the packaging phase -->
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
 			</plugins>
 
 

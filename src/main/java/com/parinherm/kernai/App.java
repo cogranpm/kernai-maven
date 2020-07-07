@@ -2,6 +2,7 @@ package com.parinherm.kernai;
 
 
 import org.eclipse.swt.widgets.Display;
+import com.parinherm.main.MainWindow;
 
 
 public class App 
@@ -10,12 +11,12 @@ public class App
     {
         System.out.println( "Hello World!" );
 		try {
-			MainWindow window = new MainWindow();
-			window.setBlockOnOpen(true);
-			window.open();
-			Display.getCurrent().dispose();
+        MainWindow window = new MainWindow(null);
+        window.setBlockOnOpen(true);
+        window.open();
+        Display.getCurrent().dispose();
 		} catch (Exception e) {
-			e.printStackTrace();
+        e.printStackTrace();
 		}
     }
 }
