@@ -33,7 +33,7 @@
           <activation>
               <os>
                   <name>linux</name>
-                  <arch>x86_64</arch>
+                  <arch>amd64</arch>
               </os>
           </activation>
           <properties><artifact-id-swt>org.eclipse.swt.gtk.linux.x86_64</artifact-id-swt></properties>
