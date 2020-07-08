@@ -33,7 +33,12 @@ class MainWindow extends ApplicationWindow {
 			this.addMenuBar()
 			this.addToolBar(SWT.FLAT | SWT.WRAP)
 			this.addStatusLine()
-			
+
+			//testing groovy 3 stuff
+			//(1..10).forEach(e -> { println e })
+			//def add = (int x, int y) -> { def z = y; return x + z }
+
+
 		}catch(Exception e) {
 			println e.message
 			throw e
@@ -251,6 +256,7 @@ class MainWindow extends ApplicationWindow {
 		try
 		{
 			println "is this your goddam main?"
+
 			def display = Display.getDefault()
 			Runnable run = {
 				try {
