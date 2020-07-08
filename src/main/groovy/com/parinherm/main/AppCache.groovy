@@ -50,12 +50,12 @@ class AppCache {
 	
 	private def setupImages() {
 		try {
-		imageRegistry = new ImageRegistry()
-		putImage(IMAGE_ACTVITY_SMALL, "Activity_16xSM.png")
-		putImage(IMAGE_ACTIVITY_LARGE, "Activity_32x.png")
-		putImage(IMAGE_GOUP, "go-up.png")
-		putImage(IMAGE_STOCK_EXIT, "stock_exit_24.png")
-		putImage(IMAGE_STOCK_INFO, "stock_save_24.png")
+			imageRegistry = new ImageRegistry()
+			putImage(IMAGE_ACTVITY_SMALL, "Activity_16xSM.png")
+			putImage(IMAGE_ACTIVITY_LARGE, "Activity_32x.png")
+			putImage(IMAGE_GOUP, "go-up.png")
+			putImage(IMAGE_STOCK_EXIT, "stock_exit_24.png")
+			putImage(IMAGE_STOCK_INFO, "stock_save_24.png")
 		}
 		catch(Exception e) {
 			println e
@@ -65,6 +65,7 @@ class AppCache {
 	private void putImage(String key, String filename) {
 		try {
 			String path = "$IMAGES_PATH$filename" as String
+
 			imageRegistry.put(key, ImageDescriptor.createFromFile(AppCache.class, path)) 
 		} catch (Exception e) {
 			println e

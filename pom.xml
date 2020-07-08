@@ -259,8 +259,10 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.2.1</version>
 					<configuration>
-              <addResourcesToClasspath>true</addResourcesToClasspath>
-						<mainClass>com.parinherm.kernai.App</mainClass>
+						  <mainClass>com.parinherm.kernai.App</mainClass>
+              <arguments>
+                  <argument>addResourcesToClasspath=true</argument>
+              </arguments>
 					</configuration>
 				</plugin>
 
