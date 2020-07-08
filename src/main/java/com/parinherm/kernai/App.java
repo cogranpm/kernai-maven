@@ -1,10 +1,11 @@
 package com.parinherm.kernai;
 
 
-import org.eclipse.core.databinding.observable.Realm;
-import org.eclipse.jface.databinding.swt.DisplayRealm;
-import org.eclipse.swt.widgets.Display;
-import com.parinherm.main.MainWindow;
+//import org.eclipse.core.databinding.observable.Realm;
+//import org.eclipse.jface.databinding.swt.DisplayRealm;
+//import org.eclipse.swt.widgets.Display;
+//import com.parinherm.main.MainWindow;
+/*
 
 
 public class App 
@@ -33,3 +34,4 @@ public class App
         }
     }
 }
+*/

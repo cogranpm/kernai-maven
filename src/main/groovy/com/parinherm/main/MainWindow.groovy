@@ -250,6 +250,7 @@ class MainWindow extends ApplicationWindow {
 		
 		try
 		{
+			println "is this your goddam main?"
 			def display = Display.getDefault()
 			Runnable run = {
 				try {

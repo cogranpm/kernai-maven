@@ -259,7 +259,7 @@
 					<artifactId>exec-maven-plugin</artifactId>
 					<version>1.2.1</version>
 					<configuration>
-						  <mainClass>com.parinherm.kernai.App</mainClass>
+						  <mainClass>com.parinherm.main.MainWindow</mainClass>
               <arguments>
                   <argument>addResourcesToClasspath=true</argument>
               </arguments>
@@ -294,37 +294,6 @@
             <version>3.3.0-01</version>
             <extensions>true</extensions>
         </plugin>
-
-				<plugin>
-					<groupId>org.codehaus.gmavenplus</groupId>
-					<artifactId>gmavenplus-plugin</artifactId>
-					<version>1.9.0</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>execute</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<scripts>
-							<script><![CDATA[
-            // your script here
-          ]]></script>
-						</scripts>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.codehaus.groovy</groupId>
-							<artifactId>groovy</artifactId>
-							<!-- any version of Groovy \>= 1.5.0 should work here -->
-							<version>3.0.3</version>
-							<scope>runtime</scope>
-						</dependency>
-					</dependencies>
-				</plugin>
-
-
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
